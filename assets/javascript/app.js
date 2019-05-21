@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+var triviaQ = ["What Pot of food of food does Kevin spill in Casual Friday episode?", "How many siblings does Dwight have?", "What is the name of the movie Michael wrote and directed?", "What is the name of the cat Andy gets for Angela after she breaks up with Dwight?", "What is the name of Oscar's first boyfriend?", "What food does Ryan burn, causing an office fire?", "Who does Michael run over with his car?", "What did Kelly do to lose weight for the Dunder Mifflin weight loss contest?", "What is Stanley's life goal and dream?"];
+
     // Nested objects for trivia Q&As
     var trivia = {
         q1: {
@@ -9,10 +11,7 @@ $(document).ready(function() {
 // Chili
         }
         q2: {
-// Whose stand up routine does michael do in Diversity Day?
-// Chris Rock
-        }
-        q3: {
+
 // How many siblings does Dwight have?
 // 1 brother, 1 sister
         }
@@ -25,8 +24,7 @@ $(document).ready(function() {
 // Garbage/Bandit
         }
         q6: {
-// Angela and Pam both have a son. They both named their son what name?
-// Phillip
+
         }
         q7: {
 // What is the name of Oscar's first boyfriend?
@@ -44,6 +42,12 @@ $(document).ready(function() {
 
         }
     }
+// What did Kelly do to lose weight for the Dunder Mifflin weight loss contest?
+// Eat a tapeworm
+
+// What is Stanley's life goal and dream
+// To own a lighthouse and live at the top of it
+
 
     // Click handler for start button
 
