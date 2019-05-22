@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type= "text/css" href="assets/css/style.css">
     <title>The Office Trivia</title>
@@ -15,22 +14,27 @@
         Dunder Mifflin Trivia
     </header>
 
-    <div class="time-set">
+    <div class="start">
+        <h1>Ready?</h1>
+        <h3>You have 30 Seconds</h3>
         <button id="startBtn">Start</button>
-        <p>Time Remaining: <span id="timer"></span></p>
-
     </div>
 
     <div class="content">
-        <p>Question: <span id="question"></span></p>
-        <form>
-            <input id="option" type="radio"> Answer</br>
+        <div class="time-set">
+            <p>Time Remaining: <span id="timer"></span></p>
+        </div>     
 
-        </form>
+        <div class="trivia"></div>
+            <p>Question: <span class="question"></span></p>
+            <form class="option">
+                <input id="option" type="radio"> Answer</br>
+            </form>
+        </div>
     </div>
 
 
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="assets/javascript/app.js" charset="UTF-8"></script> 
 
 </body>

@@ -2,9 +2,11 @@ $(document).ready(function() {
 
 // Initialize variables
 
-
-
 var numCorrect = 0;
+var numIncorrect = 0;
+var timeout = 30;
+var counter = 0;
+
 
 // Nested objects for trivia Q&As
 
@@ -46,25 +48,52 @@ var trivia = {
                 q10: "Chris Rock"             
         }
 }
-
+   
+    // Set up game
+    $(".content").hide();
 
     // Click handler for start button
+    $("#startBtn").on('click', function(e) {
+        e.preventDefault();
+        $(".start").hide();
+        $(".content").show();
+        $("#timer").text(timeout-counter);
+        var interval = setInterval(countDown, 1000);
+        playTrivia();
+    });
+
+    // Trivia Game
+    function playTrivia() {
+        for (var i = 0; i < trivia.questions.length, i++;) {
+                var qDiv = $("<div>");
+                var question = trivia.questions[i];
+                $(".question").text(question);
+                $(".option").append('<input id="${i}">${questions.choices[i]}');
+                
+        }
+}
 
     // Set countdown function
+    function countDown() {
+            counter++;
+            $("#timer").html(timeout - counter);
+            if (counter == timeout) {
+                    clearInterval(interval);
+                    checkScore();
+            }
+    }
 
-    // Once start button is clicked, timer is set off
+    //function show()
 
+    // Function to check answers
+//     function checkAnswer(){
 
-    // * Only one question can be selected
-
-    // Timer runs out - check answers
-
-// function check(){
-//         if ()
-// }
+//     }
 
     // Reveal number of correct and incorrect answers
+//     function displayResults(){
 
+//     }
 
 
 
