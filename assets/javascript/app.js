@@ -81,7 +81,7 @@ var trivia = [
                 var question = trivia[i].question;
                 qDiv.append("<br><p>Question: " + question + "</p>");
                 for (var j = 0; j < trivia[i].choices.length; j++){
-                        qDiv.append('<input type="radio" name="choice'+i+'">' + " " + trivia[i].choices[j] + '</input><br>');   
+                        qDiv.append('<input type="radio" class="choices" name="choice'+i+'">' + " " + trivia[i].choices[j] + '</input><br>');   
                 }
                 $(".trivia").append(qDiv);  
         }
@@ -90,43 +90,44 @@ var trivia = [
     // Submit button handler
     $("#submitBtn").on('click', function(e) {
         e.preventDefault();
+        clearInterval(interval);
         $(".content").hide();
-        checkAnswer();
         $(".results").show();
+        checkAnswer();
+        displayResults();
     });
 
     // Set countdown function
     function countDown() {
             timeout --;
             $("#timer").html(timeout);
-            if (timeout == 0) {
+            if (timeout === 0) {
                     clearInterval(interval);
                     $(".content").hide();
                     $(".results").show();
                     checkAnswer();
             }
     }
-    
+
     // Function to check answers
      function checkAnswer(){
         for (var i=0; i = trivia[i].length; i++) {
-                var userChoice = $('input[name=choice+'+i+']:checked').val();   
-                if (userChoice == trivia[i].answers) {
+                var userChoice = $('input[name=choice+'+i+']:checked').val();  
+
+                if (userChoice === trivia[i].answers) {
                         numCorrect++;
                 }
                 else {
                         numIncorrect++;
                 }
         }
-        displayResults(numCorrect,numIncorrect);
-     }
-
-    //Display results
-    function displayResults(numCorrect, numIncorrect){
-        var scoreDiv = $("<div>");
-        scoreDiv.append("<p>Correct Answers: " + numCorrect + "</p>");
-        scoreDiv.append("<p>Correct Answers: " + numIncorrect + "</p>");
-        $("results").append(scoreDiv);
 }
+        function displayResults() {
+                var scoreDiv = $("<div>");
+                scoreDiv.append("<p>Correct Answers: " + numCorrect + "</p>");
+                scoreDiv.append("<p>Incorrect Answers: " + numIncorrect + "</p>");
+                $(".results").append(scoreDiv);   
+                $(".results").show();             
+        }
 
 });
